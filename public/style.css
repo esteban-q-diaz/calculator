@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  margin: 0px;
+  padding: 0px;
+  min-height: 100vh;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+/* ----------- Navigation Bar --------- */
+li, a {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #6F6F6F;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 30px 3%;
+  border-bottom: solid #E5E5E5 1px;
+  height: 93px;
+}
+
+.logo {
+  width: 150px;
+  cursor: pointer;
+  margin-right: auto;
+}
+
+.navbar li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+nav li a {
+  transition: all 0.3s ease 0s;
+}
+
+nav li a:hover {
+  opacity: 0.7;
+}
+
+.navButton {
+  padding: 9px 25px;
+  color: #ffffff;
+  background-color: #101010;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.navButton:hover {
+  opacity: 0.7;
+}
+
+/* ----------- Header --------- */
+.headerText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.title {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 25px;
+  padding: 30px;
+}
+
+/* --------- Calculator --------*/
+.calculatorContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  padding-bottom: 30px;
+}
+
+.input {
+  padding-bottom: 30px;
+}
+
+.calculatorInput {
+  height: 70px;
+  width: 600px;
+  border-radius: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.calculatorInput:focus {
+  outline: 0;
+}
+
+.calculatorButton {
+  height: 50px;
+  width: 200px;
+  border-radius: 50px;
+  background-color: #101010;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
