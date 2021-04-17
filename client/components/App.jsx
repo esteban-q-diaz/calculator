@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 export default function App () {
   const [input, setInput] = useState('')
@@ -7,7 +7,7 @@ export default function App () {
 const solve = () => {
   let result;
 
-  const calculate = (int1, operation, int2) => {
+  let calculate = (int1, operation, int2) => {
     switch (operation) {
       case '+':
         return int1 + int2
@@ -23,6 +23,12 @@ const solve = () => {
         break;
     }
   }
+
+  const regExp = /[a-zA-Z]/g;
+
+  if(regExp.test(input)){
+    setSolution(p=>p='Invalid Input')
+  } else {
 
   let equation = input.split('')
 
@@ -43,34 +49,53 @@ const solve = () => {
   }
 
   // split equation string into an array
-  let equationArray = equation.match(/[-.0-9]+|[-]+|[+]+|[*]+|[/]+|\d/g);
+  let equationArray = equation.match(/[-.0-9]+|[-]+|[+]+|[*]+|[/]+|[(]+|[)]+|\d/g);
+  console.log("results",  equationArray)
 
   let addArray = (split) => {
-    while(split.length > 1) {
-      for (let i = 0 ; i < split.length; i++) {
-        if (split[i] === '*' || split[i] === '/') {
-          let result = calculate(Number(split[i-1]),split[i], Number(split[i+1]))
-          split.splice(i-1, 2)
-          split[i-1] = result
-          break
+      while(split.length > 1) {
+        for (let i = 0 ; i < split.length; i++) {
+          if (split[i] === '*' || split[i] === '/') {
+            let result = calculate(Number(split[i-1]),split[i], Number(split[i+1]))
+            split.splice(i-1, 2)
+            split[i-1] = result
+            break
+          }
+        }
+
+        for (let i = 0 ; i < split.length; i++) {
+          if (split[i] === '+' || split[i] === '-') {
+            let result = calculate(Number(split[i-1]),split[i], Number(split[i+1]))
+            split.splice(i-1, 2)
+            split[i-1] = result
+            break
+          }
         }
       }
 
-      for (let i = 0 ; i < split.length; i++) {
-        if (split[i] === '+' || split[i] === '-') {
-          let result = calculate(Number(split[i-1]),split[i], Number(split[i+1]))
-          split.splice(i-1, 2)
-          split[i-1] = result
-          break
-        }
-      }
-    }
+    console.log("results",  split.join())
     result = split.join()
+    return result
   }
+
+  // calculate equations inside parenthesis first
+  while(equationArray.includes('(')) {
+    let paren1 = equationArray.indexOf('(')
+    let paren2 = equationArray.indexOf(')')
+    let parenEquation = equationArray.slice(paren1+1, paren2)
+    let parenResults = addArray(parenEquation)
+    equationArray.splice(paren1, paren2+1, parenResults)
+  }
+
+  // after parenthesis have been calculated calculate remaining
   addArray(equationArray)
+
+  if (result === 'NaN') {
+    result = 'Syntax Error'
+  }
   setSolution(p=>p=result)
   }
-
+}
   return (
     <div>
       <h1>App is running</h1>
