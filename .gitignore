@@ -1,2 +1,4 @@
 node_modules
 package-lock.json
+client/components/text.js
+public/app.js

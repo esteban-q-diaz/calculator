@@ -81,11 +81,15 @@ nav li a:hover
 .calculatorContainer
   display: flex
   flex-direction: column
-  justify-content: center
   align-items: center
+  flex-wrap: wrap
 
 .welcome
   padding-bottom: 30px
+
+span
+  font-size:18px
+  font-weight:900
 
 .input
   padding-bottom: 30px
@@ -100,23 +104,76 @@ nav li a:hover
 .calculatorInput:focus
   outline: 0
 
+.calBtnContainer
+  padding: 50px
+  padding-bottom: 100px
+
 .calculatorButton
   height: 50px
   width: 200px
   border-radius: 50px
   background-color: rgba(16,16,16,1)
-  color: white
+  color: #ffffff
   border: none
   font-size: 30px
 
+.numberPad
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  background-color: #1CA2B2
+  height: 580px
+  width: 500px
+  border: solid 4px rgba(16,16,16,1)
+  border-radius: 100px
+  padding-top: 25px
+
+.childContainer
+  display: flex
+  justify-content: space-around
+  width: 380px
+
+.numbers
+  font-size: 15px
+  height: 90px
+  width: 90px
+  background: none
+  color: #fff
+  border: none
+  font: inherit
+  cursor: pointer
+  outline: inherit
+
+.numbers:hover
+  opacity: .7
+
+
+input[class='numbers']
+  font-size: 60px
+  text-align: center
+
+input[class='numbers operations']
+  font-size: 30px
+  text-align: center
+
+input[class='numbers parenthesis']
+  font-size: 15px
+  text-align: center
+
+.operations
+  margin-top: -15px
+
+.parenthesis
+  margin-top: -15px
+
+
+.save
+  margin-top: -15px
 
 
 
 
-
-
-
-  
 // .numberPad
 //   padding-top: 250px
 //   padding-left: 380px

@@ -1,4 +1,10 @@
 import React, { useContext } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 export default function NavBar () {
@@ -8,10 +14,10 @@ export default function NavBar () {
         <img className="logo" src="https://www.pinclipart.com/picdir/big/558-5584541_vidmob-logo-clipart.png" alt="logo" />
         <nav>
         <ul className="navbar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Change Username</a></li>
-            <li><a href="#">Change Look</a></li>
-            <li><a href="#">Calculator</a></li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/username'>Change Username</Link></li>
+            <li><Link to='/saved'>Saved Calculations</Link></li>
+            <li><Link to='/calculator'>Calculator</Link></li>
         </ul>
       </nav>
       <input type='submit' value="Contact" className='navButton'/>

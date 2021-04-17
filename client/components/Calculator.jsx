@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
-import NumberPad from './NumberPad'
+import React, { useState, useContext } from 'react'
+import { ThemeContext } from './App'
 
 
 export default function Calculator () {
   const [input, setInput] = useState('')
   const [solution, setSolution] = useState()
+  const user = useContext(ThemeContext)
+  console.log(user)
+
+const addToInput = (param) => {
+  setInput(p=>p=p+param)
+}
+
+const clearInput = () => {
+  setInput(p=>p='')
+}
 
 const solve = () => {
   let result;
@@ -100,40 +110,74 @@ const solve = () => {
   return (
     <>
       <div className="calculatorContainer">
-        <p className="welcome"> Welcome, Esteban. Type an equation to get your results</p>
+        <p className="welcome"> Welcome, <span>{user}</span>. Type an equation to get your results</p>
         <div className="input">
-        <input className="calculatorInput" type="text" onChange={(e)=>{setInput(p=>p=e.target.value)}}/>
+        <input className="calculatorInput" type="text" onChange={(e)=>{setInput(p=>p=e.target.value)}} value={input}/>
         </div>
+
         <div className="numberPad">
-          <input type='submit' value='9'/>
-          <input type='submit' value='8'/>
-          <input type='submit' value='7'/>
+          <div className="childContainer">
+            <div className="topRow">
+              <input type='submit' className="numbers" id='nine' value='7' onClick={()=>addToInput('7')}/>
+              </div>
+              <>
+              <input type='submit' className="numbers" value='8' onClick={()=>addToInput('8')}/>
+              </>
+              <>
+              <input type='submit' className="numbers" value='9' onClick={()=>addToInput('9')}/>
+              </>
+          </div>
 
-          <input type='submit' value='6'/>
-          <input type='submit' value='5'/>
-          <input type='submit' value='4'/>
 
-          <input type='submit' value='3'/>
-          <input type='submit' value='2'/>
-          <input type='submit' value='1'/>
+          <div className="childContainer">
+            <div className="topRow">
+              <input type='submit' className="numbers" id='nine' value='4' onClick={()=>addToInput('4')}/>
+              </div>
+              <>
+              <input type='submit' className="numbers" value='5' onClick={()=>addToInput('5')}/>
+              </>
+              <>
+              <input type='submit' className="numbers" value='6' onClick={()=>addToInput('6')}/>
+              </>
+          </div>
 
+          <div className="childContainer">
+            <div className="topRow">
+              <input type='submit' className="numbers" id='nine' value='1' onClick={()=>addToInput('1')}/>
+              </div>
+              <>
+              <input type='submit' className="numbers" value='2' onClick={()=>addToInput('2')}/>
+              </>
+              <>
+              <input type='submit' className="numbers" value='3' onClick={()=>addToInput('3')}/>
+              </>
+          </div>
 
-          <input type='submit' value='0'/>
+          <div className="zero">
+            <input type='submit' className="numbers" value='0' onClick={()=>addToInput('0')}/>
+          </div>
 
-          <input type='submit' value='÷'/>
-          <input type='submit' value='x'/>
-          <input type='submit' value='-'/>
-          <input type='submit' value='+'/>
-
-          <input type='submit' value='('/>
-          <input type='submit' value=')'/>
-
-          <input type='submit' value='AC'/>
-          <input type='submit' value='='/>
+          <div className="operations">
+          <input type='submit' className="numbers operations" value='÷' onClick={()=>addToInput('/')}/>
+          <input type='submit' className="numbers operations" value='x' onClick={()=>addToInput('*')}/>
+          <input type='submit' className="numbers operations" value='-' onClick={()=>addToInput('-')}/>
+          <input type='submit' className="numbers operations" value='+' onClick={()=>addToInput('+')}/>
+          </div>
+          <div className="parenthesis">
+          <input type='submit' className="numbers parenthesis" value='(' onClick={()=>addToInput('(')}/>
+          <input type='submit' className="numbers parenthesis" value=')' onClick={()=>addToInput(')')}/>
+          </div>
+          <div className="save">
+            <input type='submit' className="numbers parenthesis" value='clear' onClick={()=>clearInput()}/>
+          <input type='submit' className="numbers parenthesis" value='save'/>
+          </div>
 
         </div>
+        <div className="calBtnContainer">
         <input className="calculatorButton" type="submit" value="calculate" onClick={()=>{solve()}}/>
         <p>{solution}</p>
+        </div>
+
       </div>
     </>
   )
