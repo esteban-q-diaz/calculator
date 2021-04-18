@@ -4,8 +4,8 @@ import { ThemeContext } from './App'
 
 export default function Calculator () {
   const [input, setInput] = useState('')
-  const [solution, setSolution] = useState()
-  const user = useContext(ThemeContext)
+  const [solution, setSolution] = useState('')
+  const { user, setSaved } = useContext(ThemeContext)
   console.log(user)
 
 const addToInput = (param) => {
@@ -14,6 +14,7 @@ const addToInput = (param) => {
 
 const clearInput = () => {
   setInput(p=>p='')
+  setSolution(p=>p='')
 }
 
 const solve = () => {
@@ -63,8 +64,11 @@ const solve = () => {
   // split equation string into an array
   let equationArray = equation.match(/[-.0-9]+|[-]+|[+]+|[*]+|[/]+|[(]+|[)]+|\d/g);
 
+  let count = 0
+
   let addArray = (split) => {
       while(split.length > 1) {
+        count++
         for (let i = 0 ; i < split.length; i++) {
           if (split[i] === '*' || split[i] === '/') {
             let result = calculate(Number(split[i-1]),split[i], Number(split[i+1]))
@@ -82,8 +86,12 @@ const solve = () => {
             break
           }
         }
+        if (count > 50) {
+          split.splice(0)
+          result = 'Syntax Error'
+          return result
+        }
       }
-
     console.log("results",  split.join())
     result = split.join()
     return result
@@ -169,7 +177,13 @@ const solve = () => {
           </div>
           <div className="save">
             <input type='submit' className="numbers parenthesis" value='clear' onClick={()=>clearInput()}/>
-          <input type='submit' className="numbers parenthesis" value='save'/>
+          <input type='submit' className="numbers parenthesis" value='save' onClick={()=> {
+              if (solution === '' || solution === 'Syntax Error' || solution === 'Invalid Input') {
+                alert('submit before saving')
+              } else {
+                setSaved(p=>[...p,  {equation: input, solution: solution }])
+              }
+            }}/>
           </div>
 
         </div>

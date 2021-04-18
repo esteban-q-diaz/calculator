@@ -15,12 +15,11 @@ export default function NavBar () {
         <nav>
         <ul className="navbar">
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/username'>Change Username</Link></li>
             <li><Link to='/saved'>Saved Calculations</Link></li>
             <li><Link to='/calculator'>Calculator</Link></li>
         </ul>
       </nav>
-      <input type='submit' value="Contact" className='navButton'/>
+      <input type='submit' value="Contact" className='btn'/>
     </header>
     </>
   )
