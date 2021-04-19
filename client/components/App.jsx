@@ -11,6 +11,7 @@ export const ThemeContext = React.createContext()
 export default function App () {
   const [user, setUser] = useState('VidMob Guest')
   const [saved, setSaved] = useState([
+    { equation: '1+2*8(9+10)-100*80/4', solution: 3 },
     { equation: '1+2', solution: 3 }
     ])
   const [homeHeader, setHomeHeader] = useState({header: 'Calculator Application', caption: 'Hope you enjoy navigating through this page'})

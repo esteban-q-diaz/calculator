@@ -28,6 +28,7 @@ export default function Header () {
 
         <h1 className="useCalc">Click below to start calulating</h1>
         <Link to='/calculator'><input type="submit" value="Go to Calculator" className="startCalc btn" /></Link>
+        
       </div>
 
     </>
