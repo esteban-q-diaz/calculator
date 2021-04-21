@@ -8,10 +8,12 @@
 html {
   font-size: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
   background: #fff;
+  height: 100%;
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
@@ -26,10 +28,6 @@ li, a {
   color: #6F6F6F;
   text-decoration: none;
   list-style-type: none;
-}
-
-.navBarContainer {
-  position: fixed;
 }
 
 header {
@@ -76,7 +74,7 @@ nav li a:hover {
 }
 
 /* ----------- Header --------- */
-.headerText {
+.header-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,11 +92,34 @@ nav li a:hover {
 }
 
 /* --------- Calculator --------*/
-.calculatorContainer {
+.calculator-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  background: url("https://www.vidmob.com/wp-content/uploads/2019/11/Why-VidMob-Plus-Background@2x-scaled.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 20% 0%;
+  height: 100%;
+}
+
+.riddle-btn {
+  height: 28px;
+  width: 50px;
+  color: #ffffff;
+  background-color: rgba(28, 162, 178, 0.7);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.riddle-btn:hover {
+  opacity: 0.7;
 }
 
 .welcome {
@@ -114,24 +135,25 @@ span {
   padding-bottom: 30px;
 }
 
-.calculatorInput {
+.calculator-input {
   height: 70px;
   width: 600px;
   border-radius: 50px;
   font-size: 30px;
   text-align: center;
+  margin-bottom: 25px;
 }
 
 .calculatorInput:focus {
   outline: 0;
 }
 
-.calBtnContainer {
-  padding: 50px;
-  padding-bottom: 100px;
+.submit-btn-container {
+  padding-bottom: 30px;
+  margin-top: 20px;
 }
 
-.calculatorButton {
+.submit-btn {
   height: 50px;
   width: 200px;
   border-radius: 50px;
@@ -139,9 +161,10 @@ span {
   color: #ffffff;
   border: none;
   font-size: 30px;
+  cursor: pointer;
 }
 
-.numberPad {
+.calculator {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -154,13 +177,13 @@ span {
   padding-top: 25px;
 }
 
-.childContainer {
+.number-buttons {
   display: flex;
   justify-content: space-around;
   width: 380px;
 }
 
-.numbers {
+.key {
   font-size: 15px;
   height: 90px;
   width: 90px;
@@ -172,21 +195,21 @@ span {
   outline: inherit;
 }
 
-.numbers:hover {
+.key:hover {
   opacity: 0.7;
 }
 
-input[class=numbers] {
+input[class=key] {
   font-size: 60px;
   text-align: center;
 }
 
-input[class="numbers operations"] {
+input[class="key operations"] {
   font-size: 30px;
   text-align: center;
 }
 
-input[class="numbers parenthesis"] {
+input[class="key misc"] {
   font-size: 15px;
   text-align: center;
 }
@@ -199,17 +222,30 @@ input[class="numbers parenthesis"] {
   margin-top: -15px;
 }
 
-.save {
+.reset-container {
   margin-top: -15px;
 }
 
 /* --------- HOME ---------*/
-.homeImg {
-  margin-top: -60px;
-  margin-bottom: 50px;
+.home-img {
+  margin-top: 50px;
+  margin-bottom: 0px;
 }
 
-.homeImg img {
+.username-input {
+  height: 70px;
+  width: 600px;
+  border-radius: 50px;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.username-input:focus {
+  outline: 0;
+}
+
+.home-img img {
   width: 750px;
 }
 
@@ -222,15 +258,31 @@ input[class="numbers parenthesis"] {
 .headerText p span {
   font-size: 20px;
   font-weight: bold;
+  color: #8B1E22;
   color: #3F3E41;
 }
-.headerText p1 {
-  text-align: center;
-  padding: 20px 200px;
-  font-size: 13px;
+
+.home-container {
+  display: flex;
+  z-index: 99;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url("https://www.vidmob.com/wp-content/uploads/2019/11/home-background-creative-data-scaled.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: 20% 0%;
 }
 
-.selectUser {
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 900px;
+}
+
+.type-username {
   margin: 50px 0px 25px 0px;
 }
 
@@ -249,23 +301,49 @@ input[class="numbers parenthesis"] {
   height: 50px;
   width: 200px;
   font-size: 20px;
+  margin-bottom: 80px;
+}
+
+.nameInput {
+  width: 110px;
+  text-align: center;
+}
+
+.infoText {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 50px 0px 0px 0px;
+}
+.infoText span {
+  color: #8B1E22;
+}
+
+#span {
+  text-align: center;
+  padding: 0px 0px 50px 0;
+  font-size: 13px;
+  margin-top: 250px;
+  color: black;
 }
 
 /* -------- SAVED ----------*/
-.savedContainer {
+.saved-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 70px;
 }
 
-.savedTitle {
+.saved-title {
   padding: 0px 0px 30px 0px;
   text-align: center;
 }
 
-.savedList {
+.saved-list {
   border: solid;
   border-radius: 25px;
   background-color: rgba(135, 219, 196, 0.7);
@@ -276,11 +354,11 @@ input[class="numbers parenthesis"] {
   padding: 27px 0px 0px 0px;
   margin-bottom: 50px;
 }
-.savedList p {
+.saved-list p {
   font-size: 30px;
 }
 
-.savedTitle h1 span {
+.saved-title h1 span {
   font-size: 35px;
   color: red;
 }
