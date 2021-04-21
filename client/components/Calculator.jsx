@@ -12,12 +12,6 @@ export default function Calculator() {
     caption: `What works faster than a calculator? ${riddle ? 'A calcu-now.' : ''}`,
   };
 
-  // conditional for Jest/Enzyme testing
-  if (props === undefined) {
-    let props = {};
-    props.user = 'Guest';
-  }
-
   const addToInput = (inputString) => {
     setInput((prev) => prev + inputString);
   };
@@ -27,9 +21,7 @@ export default function Calculator() {
     setSolution('');
   };
 
-  /*||||||||||||||||||||||||||||||||||||||||
-  -------- Calculation function ----------
-  ||||||||||||||||||||||||||||||||||||||||*/
+  /* -------- Calculation function ----------*/
   const solve = () => {
     let finalResult;
 
@@ -122,7 +114,7 @@ export default function Calculator() {
         equationArray.splice(paren1, paren2+1, parenResults);
       }
 
-      // after parenthesis have been calculated calculate remaining
+      // after equation inside parenthesis has been calculated calculate remaining
       sortEquation(equationArray);
 
       if (finalResult === 'NaN') {
@@ -205,3 +197,11 @@ export default function Calculator() {
     </>
   );
 }
+
+// Calculator.defaultProps = {
+//   props: {},
+// };
+
+Calculator.defaultProps = {
+  props: {},
+};

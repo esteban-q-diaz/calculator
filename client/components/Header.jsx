@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Header({ greeting }) {
   return (
@@ -10,3 +11,7 @@ export default function Header({ greeting }) {
     </>
   );
 }
+
+Header.propTypes = {
+  greeting: PropTypes.instanceOf(Object).isRequired,
+};
