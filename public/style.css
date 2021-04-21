@@ -144,7 +144,7 @@ span {
   margin-bottom: 25px;
 }
 
-.calculatorInput:focus {
+.calculator-input:focus {
   outline: 0;
 }
 
