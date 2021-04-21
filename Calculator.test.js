@@ -119,5 +119,4 @@ describe('check calculations', () => {
   });
 })
 
-
 Enzyme.configure({ adapter: new Adapter() });
