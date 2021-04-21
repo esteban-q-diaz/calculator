@@ -1,6 +1,2 @@
-public
 node_modules
 package-lock.json
-.eslintignore
-.eslintrc.js
-node_modules
