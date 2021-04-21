@@ -20,7 +20,7 @@ export default function Home() {
           <Link to="/calculator"><input type="submit" value="Go to Calculator" className="startCalc btn" onClick={() => { setUser(userName); }} /></Link>
         </div>
         <div className="home-img">
-        <iframe width="870" height="489" src="https://www.youtube.com/embed/WsxUn0EoZyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="870" height="489" src="https://www.youtube.com/embed/WsxUn0EoZyY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
           {/* <img src="https://images.unsplash.com/photo-1611125832047-1d7ad1e8e48f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="home-img" /> */}
         </div>
         <div className="infoText">
