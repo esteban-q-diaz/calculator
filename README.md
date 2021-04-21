@@ -1,4 +1,4 @@
-# Thank you for checking this calculator application. In this README file you will find information on:
+# Thank you for checking out this calculator application. In this README file you will find information on:
 * application features
 * tech stack
 * details on how to get this application started on your device
