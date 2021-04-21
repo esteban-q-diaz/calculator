@@ -60,29 +60,29 @@ const simulateSubmitClick = (wrapper, inputSelector, btnClick, value) => {
 describe('check calculations', () => {
   test('lets me add equations correctly', () => {
     const wrapper = shallow(<Calculator />);
-    const addition = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '1+2');
-    expect(addition.props().value).toEqual('1+2 = 3');
+    const addition = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '35+2');
+    expect(addition.props().value).toEqual('35+2 = 37');
   });
 
-  test('lets me subtract correctly', () => {
+  test('lets me subtract equations correctly', () => {
     const wrapper = shallow(<Calculator />);
     const subtraction = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '4-2');
     expect(subtraction.props().value).toEqual('4-2 = 2');
   })
 
-  test('lets me multiply correctly', () => {
+  test('lets me multiply equations correctly', () => {
     const wrapper = shallow(<Calculator />);
     const multiplication = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '7*9');
     expect(multiplication.props().value).toEqual('7*9 = 63');
   })
 
-  test('lets me divide correctly', () => {
+  test('lets me divide equations correctly', () => {
     const wrapper = shallow(<Calculator />);
     const division = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '100/10');
     expect(division.props().value).toEqual('100/10 = 10');
   })
 
-  test('takes parentheses into account when solving', () => {
+  test('takes parenthesis into account when solving', () => {
     const wrapper = shallow(<Calculator />);
     const parentheses = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '100/10+(7+3)');
     expect(parentheses.props().value).toEqual('100/10+(7+3) = 20');
@@ -98,6 +98,24 @@ describe('check calculations', () => {
     const wrapper = shallow(<Calculator />);
     let invalidInput = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '19 + cinnamon ');
     expect(invalidInput.props().value).toEqual('19 + cinnamon  = Invalid Input');
+  });
+
+  test('Accurately calculates example equations found in VidMobs take home Google docs', () => {
+    const wrapper = shallow(<Calculator />);
+    const addition = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '1 + 2');
+    const multiplcationDivision = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '4*5/2');
+    const negativeNumbers = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '-5+-8--11*2');
+    const decimals = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '-.32       /.5');
+    const parenthesis = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '(4-2)*3.5');
+    const syntaxError = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '2+-+-4');
+    const invalidInput = simulateSubmitClick(wrapper, '.calculator-input', '.submit-btn', '19 + cinnamon');
+    expect(addition.props().value).toEqual('1 + 2 = 3');
+    expect(multiplcationDivision.props().value).toEqual('4*5/2 = 10');
+    expect(negativeNumbers.props().value).toEqual('-5+-8--11*2 = 9');
+    expect(decimals.props().value).toEqual('-.32       /.5 = -0.64');
+    expect(parenthesis.props().value).toEqual('(4-2)*3.5 = 7');
+    expect(syntaxError.props().value).toEqual('2+-+-4 = Syntax Error');
+    expect(invalidInput.props().value).toEqual('19 + cinnamon = Invalid Input');
   });
 })
 
