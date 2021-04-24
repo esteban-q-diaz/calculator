@@ -10,17 +10,42 @@ export default function Home() {
   return (
     <>
       <div className="home-container">
-        <Header greeting={{ header: 'Calculator Application', caption: 'Hope you enjoy navigating through this page' }} />
+        <Header greeting={{
+          header: 'Calculator Application',
+          caption: 'Hope you enjoy navigating through this page',
+        }}
+        />
         <div className="home">
           <h1 className="type-username">Start by choosing a Username</h1>
           <div>
-            <input type="text" placeholder="Type Username" className="username-input" value={userName} onChange={(e) => { setUsername(e.target.value); }} />
+            <input
+              type="text"
+              placeholder="Type Username"
+              className="username-input"
+              value={userName}
+              onChange={(e) => { setUsername(e.target.value); }}
+            />
           </div>
 
-          <Link to="/calculator"><input type="submit" value="Go to Calculator" className="startCalc btn" onClick={() => { setUser(userName); }} /></Link>
+          <Link to="/calculator">
+            <input
+              type="submit"
+              value="Go to Calculator"
+              className="startCalc btn"
+              onClick={() => { setUser(userName); }}
+            />
+          </Link>
         </div>
         <div className="home-vid">
-          <iframe width="870" height="489" src="https://www.youtube.com/embed/WsxUn0EoZyY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe
+            width="870"
+            height="489"
+            src="https://www.youtube.com/embed/WsxUn0EoZyY"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
         <div className="infoText">
           <p>

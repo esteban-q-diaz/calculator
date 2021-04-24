@@ -52,7 +52,8 @@ export default function Calculator() {
       if (equation.includes('-')) {
         for (let i = equation.length - 1; i > 0; i--) {
           if (equation[i] === '-' && i !== 0) {
-            if (equation[i - 1] !== '-' && equation[i - 1] !== '+' && equation[i - 1] !== '*' && equation[i - 1] !== '/') {
+            const prior = equation[i - 1];
+            if (prior !== '-' && prior !== '+' && prior !== '*' && prior !== '/') {
               equation.splice(i + 1, -1, '?');
             }
             equation.splice(i, -1, '?');
@@ -76,7 +77,9 @@ export default function Calculator() {
           for (let i = 0; i < equating.length; i++) {
             // search for multiplication or division in the equation array
             if (equating[i] === '*' || equating[i] === '/') {
-              let result = calculate(Number(equating[i - 1]), equating[i], Number(equating[i + 1]));
+              const result = calculate(
+                Number(equating[i - 1]), equating[i], Number(equating[i + 1]),
+              );
               equating.splice(i - 1, 2);
               equating[i - 1] = result;
               break;
@@ -85,7 +88,9 @@ export default function Calculator() {
 
           for (let i = 0 ; i < equating.length; i++) {
             if (equating[i] === '+' || equating[i] === '-') {
-              let result = calculate(Number(equating[i - 1]), equating[i], Number(equating[i + 1]));
+              const result = calculate(
+                Number(equating[i - 1]), equating[i], Number(equating[i + 1]),
+              );
               equating.splice(i - 1, 2);
               equating[i - 1] = result;
               break;
@@ -128,18 +133,38 @@ export default function Calculator() {
     <>
       <div className="calculator-container">
         <Header greeting={greeting} />
-        {!riddle ? <input type="submit" value="reveal" className="riddle-btn" onClick={() => setRiddle(true)} /> : ''}
+        {!riddle
+          ? (
+            <input
+              type="submit"
+              value="reveal"
+              className="riddle-btn"
+              onClick={() => setRiddle(true)}
+            />
+          )
+          : ''}
         <p className="welcome">
           Welcome
           <span>{props === undefined ? ' Guest' : ` ${props.user}` }</span>
           , Type an equation to get your results
         </p>
         <div className="calc-input-container">
-          <input className="calculator-input" placeholder="Write an equation" type="text" onChange={(e) => { setInput(e.target.value); }} value={`${input}${solution.length > 0 ? ` = ${solution}` : ''}`} />
+          <input
+            className="calculator-input"
+            placeholder="Write an equation"
+            type="text"
+            onChange={(e) => { setInput(e.target.value); }}
+            value={`${input}${solution.length > 0 ? ` = ${solution}` : ''}`}
+          />
         </div>
 
         <div className="submit-btn-container">
-          <input className="submit-btn" type="submit" value="calculate" onClick={() => { solve(); }} />
+          <input
+            className="submit-btn"
+            type="submit"
+            value="calculate"
+            onClick={() => { solve(); }}
+          />
         </div>
 
         <div className="calculator">

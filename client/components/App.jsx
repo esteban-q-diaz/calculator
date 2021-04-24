@@ -11,7 +11,11 @@ export const ThemeContext = React.createContext();
 export default function App() {
   const [user, setUser] = useState('Guest');
   const [saved, setSaved] = useState([]);
-  const [savedHeader, setSavedHeader] = useState({ header: 'Saved Calculations', caption: 'Place where you can store some of your calculations' });
+  const [savedHeader, setSavedHeader] = useState({
+    header: 'Saved Calculations',
+    caption: 'Place where you can store some of your calculations',
+  });
+
   return (
     <div>
       <ThemeContext.Provider value={{

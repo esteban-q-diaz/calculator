@@ -5,7 +5,11 @@ export default function NavBar() {
   return (
     <>
       <header>
-        <img className="logo" src="https://www.pinclipart.com/picdir/big/558-5584541_vidmob-logo-clipart.png" alt="logo" />
+        <img
+          className="logo"
+          src="https://www.pinclipart.com/picdir/big/558-5584541_vidmob-logo-clipart.png"
+          alt="logo"
+        />
         <nav>
           <ul className="navbar">
             <li><Link to="/">Home</Link></li>
