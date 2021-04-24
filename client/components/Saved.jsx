@@ -26,12 +26,6 @@ export default function Saved() {
               </div>)
           })}
         </h1>
-        <h1 className="floating">+</h1>
-        <h1 className="floating2">+</h1>
-        <h1 className="floating3">+</h1>
-        <h1 className="floating4">+</h1>
-        <h1 className="floating5">+</h1>
-        <h1 className="floating6">+</h1>
       </div>
     </>
   )

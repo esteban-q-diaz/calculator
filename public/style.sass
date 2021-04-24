@@ -3,6 +3,11 @@ $linkPink: rgb(216, 29, 216)
 $linkPurple: rgb(98, 16, 250)
 $magenta: #8B1E22
 $black:#3F3E41
+=background-img($backgroundUrl)
+  background: $backgroundUrl
+  background-repeat: no-repeat
+  background-size: 100% 50%
+  background-position:20% 0%
 
 *
   box-sizing: border-box
@@ -87,11 +92,10 @@ nav li a:hover
   flex-direction: column
   align-items: center
   flex-wrap: wrap
-  background: url('https://www.vidmob.com/wp-content/uploads/2019/11/Why-VidMob-Plus-Background@2x-scaled.jpg')
-  background-repeat: no-repeat
-  background-size: 100% 50%
-  background-position:20% 0%
+  +background-img(url('https://www.vidmob.com/wp-content/uploads/2019/11/Why-VidMob-Plus-Background@2x-scaled.jpg'))
   height: 100%
+
+
 
 .riddle-btn
   height: 28px
@@ -199,7 +203,7 @@ input[class='key misc']
   margin-top: -15px
 
 /* --------- HOME ---------*/
-.home-img
+.home-vid
   margin-top: 50px
   margin-bottom: 0px
 
@@ -213,11 +217,6 @@ input[class='key misc']
 
 .username-input:focus
   outline: 0
-
-
-.home-img
-  img
-    width: 750px
 
 .headerText
   p
@@ -237,10 +236,9 @@ input[class='key misc']
   flex-direction: column
   justify-content: center
   align-items: center
-  background: url('https://www.vidmob.com/wp-content/uploads/2019/11/home-background-creative-data-scaled.jpg')
-  background-repeat: no-repeat
-  background-size: 100% 50%
-  background-position:20% 0%
+  +background-img(url('https://www.vidmob.com/wp-content/uploads/2019/11/home-background-creative-data-scaled.jpg'))
+
+
 .home
   display: flex
   flex-direction: column

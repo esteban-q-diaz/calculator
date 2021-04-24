@@ -227,7 +227,7 @@ input[class="key misc"] {
 }
 
 /* --------- HOME ---------*/
-.home-img {
+.home-vid {
   margin-top: 50px;
   margin-bottom: 0px;
 }
@@ -243,10 +243,6 @@ input[class="key misc"] {
 
 .username-input:focus {
   outline: 0;
-}
-
-.home-img img {
-  width: 750px;
 }
 
 .headerText p {

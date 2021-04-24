@@ -198,10 +198,6 @@ export default function Calculator() {
   );
 }
 
-// Calculator.defaultProps = {
-//   props: {},
-// };
-
 Calculator.defaultProps = {
   props: {},
 };
